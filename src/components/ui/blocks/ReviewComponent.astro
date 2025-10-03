@@ -13,30 +13,33 @@ interface Props {
 }
 ---
 
-<div class="mt-6 lg:mt-10">
-  <div class="py-5">
+<div class="mt-8 lg:mt-12">
+  <div class="py-6">
     <div class="text-center sm:flex sm:items-center sm:text-start">
-      <div class="shrink-0 pb-5 sm:flex sm:pb-0 sm:pe-5">
+      <div class="shrink-0 pb-6 sm:flex sm:pb-0 sm:pe-6">
         <!-- Avatar Group -->
-        <div class="flex justify-center -space-x-3">
-          {avatars?.map((src) => <Avatar src={src} alt="Avatar Description" />)}
+        <div class="flex justify-center -space-x-2">
+          {avatars?.map((src) => (
+            <div class="relative">
+              <Avatar src={src} alt="Avatar Description" />
+              <div class="absolute inset-0 rounded-full ring-2 ring-white dark:ring-neutral-800"></div>
+            </div>
+          ))}
           <span
-            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 ring-2 ring-white dark:bg-zinc-900 dark:ring-zinc-800"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary-600 ring-2 ring-white text-white text-xs font-semibold dark:bg-primary-500 dark:ring-neutral-800"
           >
-            <span class="text-xs font-medium uppercase leading-none text-white"
-              >7k+</span
-            >
+            7k+
           </span>
         </div>
       </div>
       <div
-        class="mx-auto h-px w-32 border-t border-neutral-400 dark:border-neutral-500 sm:mx-0 sm:h-8 sm:w-auto sm:border-s sm:border-t-0"
+        class="mx-auto h-px w-32 border-t border-neutral-200 dark:border-neutral-700 sm:mx-0 sm:h-8 sm:w-auto sm:border-s sm:border-t-0"
       >
       </div>
       <!-- Review Ratings -->
       <div class="flex flex-col items-center sm:items-start">
-        <div class="flex items-baseline space-x-1 pt-5 sm:ps-5 sm:pt-0">
-          <div class="flex space-x-1">
+        <div class="flex items-baseline space-x-2 pt-6 sm:ps-6 sm:pt-0">
+          <div class="flex space-x-0.5">
             <!-- Your star ratings -->
             {
               Array(starCount)
@@ -46,11 +49,11 @@ interface Props {
             <!-- Adding additional half-star -->
             <HalfStar />
           </div>
-          <p class="text-neutral-800 dark:text-neutral-200">
+          <p class="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
             <Fragment set:html={rating} />
           </p>
         </div>
-        <div class="text-sm text-neutral-800 dark:text-neutral-200 sm:ps-5">
+        <div class="text-sm text-neutral-600 dark:text-neutral-400 sm:ps-6">
           <p>
             <Fragment set:html={reviews} />
           </p>

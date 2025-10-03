@@ -2,120 +2,217 @@
 @import 'preline/variants.css';
 @plugin '@tailwindcss/forms';
 
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600;700&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* https://tailwindcss.com/docs/colors#customizing-your-colors */
+  /* Premium color system */
   --color-*: initial;
   --color-transparent: transparent;
   --color-current: currentColor;
   --color-black: #000;
   --color-white: #fff;
 
-  --color-gray-50: oklch(0.985 0.002 247.839);
-  --color-gray-100: oklch(0.967 0.003 264.542);
-  --color-gray-200: oklch(0.928 0.006 264.531);
-  --color-gray-300: oklch(0.872 0.01 258.338);
-  --color-gray-400: oklch(0.707 0.022 261.325);
-  --color-gray-500: oklch(0.551 0.027 264.364);
-  --color-gray-600: oklch(0.446 0.03 256.802);
-  --color-gray-700: oklch(0.373 0.034 259.733);
-  --color-gray-800: oklch(0.278 0.033 256.848);
-  --color-gray-900: oklch(0.21 0.034 264.665);
-  --color-gray-950: oklch(0.13 0.028 261.692);
+  /* Deep neutral palette */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
 
-  --color-indigo-50: oklch(0.962 0.018 272.314);
-  --color-indigo-100: oklch(0.93 0.034 272.788);
-  --color-indigo-200: oklch(0.87 0.065 274.039);
-  --color-indigo-300: oklch(0.785 0.115 274.713);
-  --color-indigo-400: oklch(0.673 0.182 276.935);
-  --color-indigo-500: oklch(0.585 0.233 277.117);
-  --color-indigo-600: oklch(0.511 0.262 276.966);
-  --color-indigo-700: oklch(0.457 0.24 277.023);
-  --color-indigo-800: oklch(0.398 0.195 277.366);
-  --color-indigo-900: oklch(0.359 0.144 278.697);
-  --color-indigo-950: oklch(0.257 0.09 281.288);
+  /* Primary accent - sophisticated blue */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
 
-  --color-neutral-50: oklch(0.985 0 0);
-  --color-neutral-100: oklch(0.97 0 0);
-  --color-neutral-200: oklch(0.922 0 0);
-  --color-neutral-300: oklch(0.87 0 0);
-  --color-neutral-400: oklch(0.708 0 0);
-  --color-neutral-500: oklch(0.556 0 0);
-  --color-neutral-600: oklch(0.439 0 0);
-  --color-neutral-700: oklch(0.371 0 0);
-  --color-neutral-800: oklch(0.269 0 0);
-  --color-neutral-900: oklch(0.205 0 0);
-  --color-neutral-950: oklch(0.145 0 0);
-
-  --color-yellow-50: oklch(0.987 0.026 102.212);
-  --color-yellow-100: oklch(0.973 0.071 103.193);
-  --color-yellow-200: oklch(0.945 0.129 101.54);
-  --color-yellow-300: oklch(0.905 0.182 98.111);
-  --color-yellow-400: oklch(0.852 0.199 91.936);
-  --color-yellow-500: oklch(0.795 0.184 86.047);
-  --color-yellow-600: oklch(0.681 0.162 75.834);
-  --color-yellow-700: oklch(0.554 0.135 66.442);
-  --color-yellow-800: oklch(0.476 0.114 61.907);
-  --color-yellow-900: oklch(0.421 0.095 57.708);
-  --color-yellow-950: oklch(0.286 0.066 53.813);
-
-  --color-orange-50: oklch(0.98 0.016 73.684);
-  --color-orange-100: oklch(0.954 0.038 75.164);
-  --color-orange-200: oklch(0.901 0.076 70.697);
-  --color-orange-300: oklch(70.72% 0.182 40.56);
-  --color-orange-400: oklch(67.4% 0.2072 39.23);
-  --color-orange-500: oklch(61.86% 0.1946 38.88);
-  --color-orange-600: oklch(0.646 0.222 41.116);
-  --color-orange-700: oklch(0.553 0.195 38.402);
-  --color-orange-800: oklch(0.47 0.157 37.304);
-  --color-orange-900: oklch(0.408 0.123 38.172);
-  --color-orange-950: oklch(0.266 0.079 36.259);
-
-  --color-red-50: oklch(0.971 0.013 17.38);
-  --color-red-100: oklch(0.936 0.032 17.717);
-  --color-red-200: oklch(0.885 0.062 18.334);
-  --color-red-300: oklch(0.808 0.114 19.571);
-  --color-red-400: oklch(0.704 0.191 22.216);
-  --color-red-500: oklch(0.637 0.237 25.331);
-  --color-red-600: oklch(0.577 0.245 27.325);
-  --color-red-700: oklch(0.505 0.213 27.518);
-  --color-red-800: oklch(0.444 0.177 26.899);
-  --color-red-900: oklch(0.396 0.141 25.723);
-  --color-red-950: oklch(0.258 0.092 26.042);
-
-  --color-zinc-50: oklch(0.985 0 0);
-  --color-zinc-100: oklch(0.967 0.001 286.375);
-  --color-zinc-200: oklch(0.92 0.004 286.32);
-  --color-zinc-300: oklch(0.871 0.006 286.286);
-  --color-zinc-400: oklch(0.705 0.015 286.067);
-  --color-zinc-500: oklch(0.552 0.016 285.938);
-  --color-zinc-600: oklch(0.442 0.017 285.786);
-  --color-zinc-700: oklch(0.37 0.013 285.805);
-  --color-zinc-800: oklch(0.274 0.006 286.033);
-  --color-zinc-900: oklch(0.21 0.006 285.885);
-  --color-zinc-950: oklch(0.141 0.005 285.823);
+  /* Secondary accent - warm orange */
+  --color-accent-50: #fef7ee;
+  --color-accent-100: #fdedd3;
+  --color-accent-200: #fbd7a5;
+  --color-accent-300: #f8bb6d;
+  --color-accent-400: #f59532;
+  --color-accent-500: #f37316;
+  --color-accent-600: #e4590c;
+  --color-accent-700: #bd430c;
+  --color-accent-800: #973612;
+  --color-accent-900: #7a2e12;
+  --color-accent-950: #421507;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Global base styles */
 @layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-neutral-200);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-neutral-700);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    color: var(--color-neutral-300);
+    background-color: var(--color-neutral-900);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cal Sans', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-neutral-900);
+    letter-spacing: -0.025em;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: var(--color-white);
   }
 
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
+  /* Premium button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:bg-primary-700 hover:shadow-medium hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-700 shadow-soft transition-all duration-200 hover:bg-neutral-50 hover:shadow-medium hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:translate-y-0;
+  }
+
+  .dark .btn-secondary {
+    @apply bg-neutral-800 border-neutral-700 text-neutral-300 hover:bg-neutral-700;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-neutral-100 transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+
+  .dark .card {
+    @apply bg-neutral-800 border-neutral-700;
+  }
+
+  /* Section styles */
+  .section {
+    @apply py-16 lg:py-24;
+  }
+
+  .section-alt {
+    @apply bg-neutral-50;
+  }
+
+  .dark .section-alt {
+    @apply bg-neutral-800/50;
+  }
+
+  /* Text styles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Animation utilities */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl bg-white/80 border border-white/20;
+  }
+
+  .dark .glass {
+    @apply bg-neutral-900/80 border-neutral-700/50;
+  }
+
+  /* Premium shadows */
+  .shadow-premium {
+    box-shadow: 
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px 0 rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-400);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-neutral-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-600);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-500);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
 }

@@ -14,15 +14,17 @@ const contentClasses =
 ---
 
 <!-- The root container that arranges your slot and the heading/content -->
-<div class="flex gap-x-5">
+<div class="group flex gap-x-6 p-6 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-medium dark:hover:bg-neutral-800/50">
   <!-- Slot to allow for extensibility of the component -->
-  <slot />
+  <div class="flex-shrink-0 p-3 rounded-xl bg-primary-50 dark:bg-primary-950/50 transition-all duration-300 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50">
+    <slot />
+  </div>
   <div class="grow">
     <!-- Heading of the section -->
-    <h3 class={headingClasses}>
+    <h3 class="text-balance text-xl font-bold text-neutral-900 dark:text-white transition-colors duration-300 group-hover:text-primary-700 dark:group-hover:text-primary-300">
       {heading}
     </h3>
     <!-- Content text of the section -->
-    <p class={contentClasses}>{content}</p>
+    <p class="mt-3 text-pretty text-neutral-600 dark:text-neutral-300">{content}</p>
   </div>
 </div>
